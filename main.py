@@ -9,19 +9,26 @@ iki = int(input("Paisrink skaičių iki kurio žaisim: "))
 skaicius = random.randint(nuo, iki)
 # print(skaicius)
 kartai = 0
-d1 = nuo
-d2 = iki
+# nuo = nuo
+# iki = iki
 
 while True:
-    print("Spėk tarp ", d1, "ir", d2)
+    print("Spėk tarp ", nuo, "ir", iki)
     ivesta = int(input("Įveskite skaičių: "))
     kartai +=1
     if ivesta > skaicius:
-        print("Tavo skaičius yra didesnis")
-        d2 = ivesta
+        if ivesta < nuo or ivesta > iki:
+            print("Pasirinkite skaičių ribose")
+        else:
+            print("Tavo skaičius yra didesnis")
+            iki = ivesta
+
     elif ivesta < skaicius:
-        print("Tavo skaičius mažesnis")
-        d1 = ivesta
+        if ivesta < nuo or ivesta > iki:
+            print("Pasirinkite skaičių ribose")
+        else:
+            print("Tavo skaičius mažesnis")
+            nuo = ivesta
     else:
         print()
         print("Tu laimėjai!!")
@@ -30,8 +37,7 @@ print()
 print("Žaidimas baigtas")
 
 print("Spėjimų skaičius: ", kartai)
-input("Norėdami išeiti, spauskite ENTER")
-
+print("Norėdami baigti žaidimą, spauskite ENTER")
 
 
 
